@@ -6,8 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   todoForm.addEventListener('submit', function(event) {
     event.preventDefault()
-    let task = event.target.querySelector("#new-task-description").value
-
+    const input = event.target.querySelector("#new-task-description")
+    let task = input.value
+    input.value = ""
     const taskLiTag = document.createElement('li')
     taskLiTag.textContent = task + " "
     const buttonTag = document.createElement('button')
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     taskLiTag.appendChild(buttonTag)
     taskContainer.appendChild(taskLiTag)
+    
 
   })
 
