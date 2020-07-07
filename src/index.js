@@ -7,6 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let item = document.createElement("li");
     item.innerText = form_val.value;
     tasks.append(item);
-    e.target.reset();
+    e.target.reset
   });
 });
