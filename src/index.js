@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   let form = document.getElementById('create-task-form')
-  form.addEventListener("submit", submitForm)
+  form.addEventListener("submit", submitTasks)
 })
 
 function getTasks() {
   return document.getElementById('tasks')
 }
 
-function submitForm(event) {
+function submitTasks(event) {
   event.preventDefault()
 
   let newTaskDesc = document.getElementById('new-task-description');
@@ -15,6 +15,14 @@ function submitForm(event) {
   let taskList = document.createElement('li');
   taskList.innerText = newTaskDesc.Value;
   
-  getTasks().appendChild(taskList)
+  let dlte = document.createElement('button')
+  dlte.innerText = "x"
+  dlte.onclick = function(event) {
+    getTasks().removeChild(taskList)
+  }
+
+  getTasks().appendChild(taskList);
+  taskList.appendChild(dlte);
   event.target.reset();
 }
+
