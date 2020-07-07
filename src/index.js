@@ -4,10 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const newForm = document.getElementById("create-task-form")
   const taskDescription = document.getElementById("new-task-description")
   newForm.addEventListener("submit", createTask)
-  
-  const newExercise = document.getElementById("create-new-exercise")
-  const exerciseDescription = document.getElementById("new-exercise-description")
-  newExercise.addEventListener("submit", newExercise)
 
 });
 
@@ -26,12 +22,4 @@ const deleteTask = event => {
   const taskDescription = document.getElementById("new-task-description")
   taskDescription.remove()
   alert("You have deleted a task.")
-}
-
-const newExercise = event => {
-  event.preventDefault()
-  const exerciseDescription = document.getElementById("new-exercise-description")
-  const newActivity = document.createElement("li")
-  newActivity.innerHTML = exerciseDescription.value
-  document.getElementById("exercise").appendChild(newActivity)
 }
