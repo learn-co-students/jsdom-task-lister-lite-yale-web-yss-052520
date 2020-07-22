@@ -1,22 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector('#create-task-form')
-  const taskList = document.querySelector('#tasks')
+const form = document.querySelector('#create-task-form')
+const taskList = document.querySelector('#tasks')
 
-  form.addEventListener('submit', event => {
-    event.preventDefault()
+form.addEventListener('submit', event => handleSubmit(event))
 
-    const taskInput = document.getElementById('new-task-description')
-    const li = document.createElement('li')
-    li.innerText = taskInput.value
+function handleSubmit(event) {
+  event.preventDefault()
 
-    const btn = document.createElement('button')
-    btn.innerText = "X"
-    btn.addEventListener('click', e => {
-      li.remove()
-    })
-    li.appendChild(btn)
+  const taskInput = document.getElementById('new-task-description')
+  const li = document.createElement('li')
+  li.innerText = taskInput.value
 
-    taskList.appendChild(li)
-    event.target.reset()
+  const btn = document.createElement('button')
+  btn.innerText = "X"
+  btn.addEventListener('click', e => {
+    li.remove()
   })
-})
+  li.appendChild(btn)
+
+  taskList.appendChild(li)
+  event.target.reset()
+}
